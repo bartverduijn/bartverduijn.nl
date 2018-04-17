@@ -420,7 +420,16 @@ ul {
 
 [tabindex="-1"]:focus {
   outline: none !important;
-}html,
-body {
-  background: #daa520;
+}textarea {
+  resize: vertical;
+}
+img {
+  max-width: 100%;
+}
+svg {
+  fill: currentColor;
+}
+button,
+[role=button] {
+  cursor: pointer;
 }
