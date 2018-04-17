@@ -463,6 +463,7 @@ body {
 p,
 li {
   font-family: Sabon, 'New Baskerville', 'Times New Roman', Times, serif;
+  color: #251a04;
 }
 .wrapper {
   max-width: 600px;
@@ -484,6 +485,7 @@ footer {
 footer h2 {
   font-size: 1rem;
   border-bottom: 2px #251a04 solid;
+  color: #251a04;
 }
 footer ul li {
   font-size: 0.75rem;
