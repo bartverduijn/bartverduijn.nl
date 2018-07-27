@@ -1,59 +1,55 @@
-// const webpack = require('webpack');
-const glob = require('glob');
+/* eslint no-new: 0, global-require: 0 */
+
 const path = require('path');
-const autoprefixer = require('autoprefixer');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const glob = require('glob');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
-    entry: './styles/styles.styl',
+    mode: 'development',
+    entry: './scripts/app.js',
+    output: {
+        path: path.resolve(__dirname, 'styles'),
+        filename: 'styles.css',
+    },
     module: {
         rules: [
             {
-                test: /\.styl$/,
-                use: ExtractTextPlugin.extract([
-                    {
-                        loader: 'css-loader',
-                    },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: () => [
-                                autoprefixer({
-                                    browsers: 'last 3 versions',
-                                }),
-                            ],
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: { importLoaders: 1, minimize: true },
                         },
-                    },
-                    {
-                        loader: 'stylus-loader',
-                        options: {
-                            includePaths: ['styles']
-                                .map(dir => path.join(__dirname, dir))
-                                .map(dir => glob.sync(dir))
-                                .reduce(
-                                    (array, filepath) => array.concat(filepath),
-                                    []
-                                ),
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: [
+                                    require('tailwindcss')(
+                                        './styles/tailwind.js'
+                                    ),
+                                    require('autoprefixer'),
+                                ],
+                            },
                         },
-                    },
-                ]),
+                    ],
+                }),
             },
         ],
     },
     plugins: [
-        new ExtractTextPlugin({ filename: './styles/[name].css' }),
+        new ExtractTextPlugin('styles.css'),
         new BrowserSyncPlugin({
             host: 'localhost',
             port: 3000,
-            server: { baseDir: ['dist'] },
+            watch: true,
+            server: true,
         }),
-        new CopyWebpackPlugin([
-            {
-                from: 'index.html',
-                to: '../dist',
-            },
-        ]),
+        // new PurgecssPlugin({
+        //     paths: glob.sync(path.join(__dirname, 'views', '*.html')),
+        // }),
     ],
 };
