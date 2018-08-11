@@ -48,8 +48,8 @@ module.exports = {
             watch: true,
             server: true,
         }),
-        // new PurgecssPlugin({
-        //     paths: glob.sync(path.join(__dirname, 'views', '*.html')),
-        // }),
+        new PurgecssPlugin({
+            paths: glob.sync(path.join(__dirname, '*.html')),
+        }),
     ],
 };
