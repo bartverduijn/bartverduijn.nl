@@ -3,3 +3,38 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@keyframes slideUp {
+    0% { transform: translateY(0); }
+    100% { transform:translateY(100%); }
+}
+
+.slideUp {
+    position: relative;
+}
+
+.slideUp::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #212121;
+    animation: slideUp 0.7s ease-in 0s 1 normal forwards;
+}
+
+.slideUp--delayed {
+    position: relative;
+}
+
+.slideUp--delayed::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #212121;
+    animation: slideUp 0.7s ease-in 0.25s 1 normal forwards;
+}
