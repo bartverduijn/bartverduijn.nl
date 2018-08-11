@@ -1,3 +1,5 @@
+/* eslint global-require: 0 */
+
 /*
 
 Tailwind - The Utility-First CSS Framework
