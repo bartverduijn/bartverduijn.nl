@@ -193,7 +193,8 @@ module.exports = {
         '4xl': '2.25rem', // 36px
         '5xl': '3rem', // 48px
         '6xl': '4rem', // 64px
-        '18vw': '16vw',
+        '16vw': '16vw',
+        '8vw': '8vw',
     },
 
     /*
@@ -580,6 +581,7 @@ module.exports = {
         '20': '5rem',
         '24': '6rem',
         '32': '8rem',
+        '50vh': '50vh',
         screen: '100vh',
     },
 
@@ -615,6 +617,7 @@ module.exports = {
         '20': '5rem',
         '24': '6rem',
         '32': '8rem',
+        '50vh': '50vh',
         screen: '100vh',
     },
 
