@@ -2,6 +2,18 @@
 
 @tailwind components;
 
+.quote--standard {
+    @apply border-l-4 border-teal block pl-4 py-2 font-serif leading-tight text-white text-xl italic;
+}
+
+.link--standard {
+    @apply no-underline text-teal;
+}
+
+.text--standard {
+    @apply leading-normal text-grey-lightest;
+}
+
 @tailwind utilities;
 
 body {
