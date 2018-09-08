@@ -1,3 +1,3 @@
 # bartverduijn.nl
 My personal website.
-Go to https://www.bartverduijn.nl
+Go to <https://www.bartverduijn.nl>
