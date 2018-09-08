@@ -8,7 +8,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './scripts/app.js',
+    entry: './scripts/importTailwind.js',
     output: {
         path: path.resolve(__dirname, 'styles'),
         filename: 'styles.css',

@@ -7,24 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="author" content="Bart Verduijn">
 
-    <title>Bart. Verduijn. 👨🏻‍💻</title>
+    <title>Bart.Verduijn. 👨🏻‍💻</title>
 
     <link rel="stylesheet" href="./styles/styles.css">
 </head>
 
 <body class="relative antialiased font-sans min-h-full xl:flex">
 
-    <header class="css-grow fixed h-screen w-screen flex items-center z-0 bg-black xl:w-1/2">
-        <h1 class="block text-16vw text-white font-semibold ml-8 md:ml-16 leading-tight -mt-8 xl:text-8vw">
-            <span class="css-pop-up block">Bart.</span>
-            <span class="css-pop-up--delayed block z-10">Verduijn.</span>
+    <header class="js-header fixed h-screen w-screen flex items-center z-0 bg-black xl:w-1/2" style="transform: scaleY(0); opacity: 0;">
+        <h1 class="block text-16vw text-white font-semibold ml-8 md:ml-16 leading-tight -mt-8 xl:text-8vw" style="transform: translateY(40px);">
+            <span class="js-bart block opacity-0">Bart.</span>
+            <span class="js-verduijn block z-10 opacity-0">Verduijn.</span>
         </h1>
     </header>
 
     <div id="spacer" class="hidden xl:block xl:w-1/2"></div>
 
-    <main class="absolute pin-t mt-screen bg-black z-100 w-screen px-8  py-16 md:px-16 xl:py-24 xl:relative xl:mt-0 xl:w-1/2 xl:min-h-screen xl:flex xl:items-center">
-        <div class="css-fade container">
+    <main class="js-main absolute pin-t mt-screen bg-black z-100 w-screen px-8  py-16 md:px-16 xl:py-24 xl:relative xl:mt-0 xl:w-1/2 xl:min-h-screen xl:flex xl:items-center"
+        style="transform: scaleY(0); opacity: 0;">
+        <div class="js-fade container opacity-0">
             <h2 class="leading-tight mb-8 text-white">Hoi! Ik ben Bart. Ik ben 23 jaar oud en IT-specialist in dienst van
                 Brunel. Lees hier
                 <span class="line-through">mijn CV</span>
@@ -102,6 +103,8 @@
             <h3 class="leading-tight mb-16 text-white">Bart Verduijn.</h3>
         </div>
     </main>
+
+    <script async src="./scripts/app.js"></script>
 </body>
 
 </html>
