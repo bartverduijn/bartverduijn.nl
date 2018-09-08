@@ -53,12 +53,13 @@ RAFPromise()
             opacity: 1,
             transition:
                 'transform 0.24s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.24s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-        }).then(() =>
-            animate(verduijn, {
-                transform: 'translateY(-40px)',
-                opacity: 1,
-                transition:
-                    'transform 0.18s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.18s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
-            })
-        )
+        })
+    )
+    .then(() =>
+        animate(verduijn, {
+            transform: 'translateY(-40px)',
+            opacity: 1,
+            transition:
+                'transform 0.18s cubic-bezier(0.68, -0.55, 0.265, 1.55), opacity 0.18s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+        })
     );
