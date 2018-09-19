@@ -3,7 +3,7 @@
 @tailwind components;
 
 .quote--standard {
-    @apply border-l-4 border-teal block pl-4 py-2 font-mono text-white  font-bold text-lg;
+    @apply border-l-4 border-teal block pl-4 py-2 font-mono text-white leading-normal font-bold text-lg;
 }
 
 .link--standard {
