@@ -3,7 +3,7 @@
   "short_name": "Bart.Verduijn.",
   "theme_color": "#2f384b",
   "background_color": "#2f384b",
-  "display": "browser",
+  "display": "minimal-ui",
   "Scope": "/",
   "start_url": "/",
   "icons": [
