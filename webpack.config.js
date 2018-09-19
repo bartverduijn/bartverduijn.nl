@@ -6,6 +6,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
+class TailwindExtractor {
+    static extract(content) {
+        return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
+    }
+}
+
 module.exports = {
     mode: 'development',
     entry: './scripts/importTailwind.js',
@@ -48,8 +54,14 @@ module.exports = {
             watch: true,
             server: true,
         }),
-        // new PurgecssPlugin({
-        //     paths: glob.sync(path.join(__dirname, '*.html')),
-        // }),
+        new PurgecssPlugin({
+            paths: glob.sync(path.join(__dirname, '*.html')),
+            extractors: [
+                {
+                    extractor: TailwindExtractor,
+                    extensions: ['html', 'js'],
+                },
+            ],
+        }),
     ],
 };
