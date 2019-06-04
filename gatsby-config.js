@@ -1,12 +1,14 @@
 module.exports = {
     siteMetadata: {
-        title: 'Gatsby Default Starter',
+        title:
+            'Bart Verduijn | MSc Cognitive Science & Artificial Intelligence.',
         description:
-            'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-        author: '@gatsbyjs',
+            'CV Bart Verduijn, MSc Cognitive Science & Artificial Intelligence and IT specialist @ Brunel. Interested in Data Science, Machine Learning & Business Analysis',
+        author: 'Bart Verduijn',
     },
     plugins: [
         'gatsby-plugin-react-helmet',
+        'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-source-filesystem',
             options: {
@@ -16,11 +18,12 @@ module.exports = {
         },
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
+        'gatsby-mdx',
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
-                name: 'gatsby-starter-default',
-                short_name: 'starter',
+                name: 'Bart Verduijn',
+                short_name: 'Bart',
                 start_url: '/',
                 background_color: '#663399',
                 theme_color: '#663399',
