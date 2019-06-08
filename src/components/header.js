@@ -50,37 +50,49 @@ const HeaderContainer = styled.div`
     }
 `;
 
-const ImageContainer = styled.div`
-    height: 60px;
-    width: 60px;
+const Shadow = styled.div`
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    overflow: hidden;
-    border: 1px solid #e5e5e5;
-    margin-right: 16px;
-    ${'' /* box-shadow: inset 0 3px 4px rgba(0, 0, 0, 0.3); */};
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const Header = () => (
     <StyledHeader>
         <HeaderContainer>
-            <ImageContainer>
-                <StaticQuery
-                    query={graphql`
-                        query {
-                            file(relativePath: { eq: "bart.jpg" }) {
-                                childImageSharp {
-                                    fixed(height: 60, width: 60) {
-                                        ...GatsbyImageSharpFixed
-                                    }
+            <StaticQuery
+                query={graphql`
+                    query {
+                        file(relativePath: { eq: "bart.jpg" }) {
+                            childImageSharp {
+                                fixed(height: 60, width: 60) {
+                                    ...GatsbyImageSharpFixed
                                 }
                             }
                         }
-                    `}
-                    render={({ file }) => (
-                        <Img fixed={file.childImageSharp.fixed} />
-                    )}
-                />
-            </ImageContainer>
+                    }
+                `}
+                render={({ file }) => (
+                    <div
+                        style={{
+                            position: 'relative',
+                            marginRight: '16px',
+                            lineHeight: 0,
+                        }}
+                    >
+                        <Img
+                            fixed={file.childImageSharp.fixed}
+                            style={{ borderRadius: '50%' }}
+                        />
+                        <Shadow />
+                    </div>
+                )}
+            />
+
             <ul>
                 <li>
                     <h1>
