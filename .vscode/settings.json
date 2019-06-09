@@ -1,7 +1,0 @@
-{
-    "editor.formatOnSave": true,
-    "[javascript]": { "editor.formatOnSave": true },
-    "editor.formatOnPaste": true,
-    "eslint.autoFixOnSave": true,
-    "eslint.alwaysShowStatus": true
-}
