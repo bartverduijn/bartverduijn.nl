@@ -5,14 +5,14 @@ import Layout from '../components/Layout';
 // import SEO from '../components/seo';
 
 const H2 = styled.h2`
-    font-size: 48px;
+	font-size: 48px;
 `;
 
 const IndexPage = () => (
-    <Layout>
-        {/* <SEO title="Home" /> */}
-        <H2>TEST</H2>
-    </Layout>
+	<Layout>
+		{/* <SEO title="Home" /> */}
+		<H2>TEST</H2>
+	</Layout>
 );
 
 export default IndexPage;

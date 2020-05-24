@@ -5,11 +5,11 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import Header from './Header';
 
 const theme = {
-    purple: 'hsl(263, 81%, 49%)',
-    teal: 'hsl(185, 63%, 48%)',
-    black: 'hsl(263, 61%, 16%)',
-    montserrat: `'Montserrat', sans-serif`,
-    arvo: `'Arvo', serif`,
+	purple: 'hsl(263, 81%, 49%)',
+	teal: 'hsl(185, 63%, 48%)',
+	black: 'hsl(263, 61%, 16%)',
+	montserrat: `'Montserrat', sans-serif`,
+	arvo: `'Arvo', serif`,
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -31,22 +31,22 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Main = styled.main`
-    max-width: 300px;
-    margin: 16px auto;
+	max-width: 300px;
+	margin: 16px auto;
 `;
 
 const Layout = ({ children }) => (
-    <ThemeProvider theme={theme}>
-        <>
-            <GlobalStyle />
-            <Header />
-            <Main>{children}</Main>
-        </>
-    </ThemeProvider>
+	<ThemeProvider theme={theme}>
+		<>
+			<GlobalStyle />
+			<Header />
+			<Main>{children}</Main>
+		</>
+	</ThemeProvider>
 );
 
 Layout.propTypes = {
-    children: PropTypes.node.isRequired,
+	children: PropTypes.node.isRequired,
 };
 
 export default Layout;
