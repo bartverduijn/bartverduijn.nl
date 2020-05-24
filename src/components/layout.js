@@ -5,9 +5,9 @@ import Header from './Header';
 export default function Layout({ children }) {
 	return (
 		<div className="antialiased">
-			<div className="max-w-5xl mx-auto px-6">
+			<div className="max-w-4xl mx-auto px-6 mb-10">
 				<Header />
-				<main>{children}</main>
+				{children}
 			</div>
 		</div>
 	);
