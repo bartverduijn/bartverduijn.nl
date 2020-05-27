@@ -1,12 +1,33 @@
 import React from 'react';
-import Layout from '../components/Layout';
-// import SEO from '../components/seo';
+import { graphql } from 'gatsby';
+import useSiteMetaData from '../hooks/useSiteMetaData';
+import SEO from '../components/SEO';
 
-export default function IndexPage() {
+export const TEST_CONTENT_QUERY = graphql`
+	query TEST_CONTENT_QUERY {
+		allMdx {
+			nodes {
+				frontmatter {
+					title
+					date
+				}
+			}
+		}
+	}
+`;
+
+export default function IndexPage({ data }) {
+	const { title, description, author } = useSiteMetaData();
 	return (
-		<Layout>
-			{/* <SEO title="Home" /> */}
-			<main className="text-lg sm:text-xl md:text-2xl md:font-light text-gray-700">
+		<>
+			<SEO title="Home" />
+			<p>
+				{title} + {description} + {author}
+			</p>
+
+			<p>{data.allMdx.nodes[0].frontmatter.title}</p>
+
+			<main className="text-base sm:text-lg text-gray-700 font-light">
 				<p className="mt-10">
 					Ik ben Bart. Ik ben 25 jaar oud, en op dit moment ben ik
 					werkzaam als Functioneel Applicatie Manager bij DAF Trucks
@@ -41,7 +62,13 @@ export default function IndexPage() {
 					wordt, en jouw dag net een beetje leuker. Als ik later groot
 					ben, word ik bruggenbouwer.
 				</p>
+				<a
+					className="inline-block mt-10 py-2 px-6 border border-gray-700 rounded hover:bg-gray-700 hover:text-white"
+					href="mailto:bart.verduijn@gmail.com"
+				>
+					Mail Me
+				</a>
 			</main>
-		</Layout>
+		</>
 	);
 }
