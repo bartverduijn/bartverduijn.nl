@@ -3,7 +3,7 @@ import React from 'react';
 export default function Header() {
 	return (
 		<header className="flex justify-between items-center mt-10">
-			<h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-900 font-medium md:font-normal leading-none">
+			<h1 className="text-md text-gray-900 font-bold leading-none">
 				Bart Verduijn
 			</h1>
 			<button type="button">
