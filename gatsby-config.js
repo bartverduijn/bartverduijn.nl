@@ -9,11 +9,11 @@ module.exports = {
 	siteMetadata,
 	plugins: [
 		'gatsby-plugin-react-helmet',
+		{ resolve: 'gatsby-plugin-mdx', options: ['.mdx', '.md'] },
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: { path: `${__dirname}/src/posts`, name: 'posts' },
 		},
-		{ resolve: 'gatsby-plugin-mdx', options: ['.mdx', '.md'] },
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-sharp',
 		'gatsby-plugin-postcss',
