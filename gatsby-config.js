@@ -8,15 +8,12 @@ const siteMetadata = {
 module.exports = {
 	siteMetadata,
 	plugins: [
-		'gatsby-plugin-react-helmet',
-		{ resolve: 'gatsby-plugin-mdx', options: ['.mdx', '.md'] },
+		'gatsby-plugin-postcss',
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: { path: `${__dirname}/src/posts`, name: 'posts' },
 		},
-		'gatsby-transformer-sharp',
-		'gatsby-plugin-sharp',
-		'gatsby-plugin-postcss',
+		{ resolve: 'gatsby-plugin-mdx', options: ['.mdx', '.md'] },
 		{
 			resolve: `gatsby-plugin-purgecss`,
 			options: {
@@ -28,6 +25,8 @@ module.exports = {
 				// purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
 			},
 		},
+		'gatsby-transformer-sharp',
+		'gatsby-plugin-sharp',
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
@@ -40,6 +39,7 @@ module.exports = {
 				icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
 			},
 		},
+		'gatsby-plugin-react-helmet',
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.dev/offline
 		// `gatsby-plugin-offline`,
