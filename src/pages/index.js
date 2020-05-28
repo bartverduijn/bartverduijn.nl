@@ -1,15 +1,23 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import useSiteMetaData from '../hooks/useSiteMetaData';
 import SEO from '../components/SEO';
+import Dump from '../components/Dump';
 
 export const TEST_CONTENT_QUERY = graphql`
 	query TEST_CONTENT_QUERY {
 		allMdx {
 			nodes {
+				id
+				excerpt(pruneLength: 250)
 				frontmatter {
 					title
 					date
+					slug
+					published
+				}
+				fields {
+					slug
 				}
 			}
 		}
@@ -21,12 +29,14 @@ export default function IndexPage({ data }) {
 	return (
 		<>
 			<SEO title="Home" />
-			<p>
-				{title} + {description} + {author}
-			</p>
-
-			<p>{data.allMdx.nodes[0].frontmatter.title}</p>
-
+			<Dump data={data} />
+			{data.allMdx.nodes.map(({ frontmatter, fields }) => (
+				<p>
+					<Link to={fields.slug}>
+						<p>{frontmatter.title}</p>
+					</Link>
+				</p>
+			))}
 			<main className="text-base sm:text-lg text-gray-700 font-light">
 				<p className="mt-10">
 					Ik ben Bart. Ik ben 25 jaar oud, en op dit moment ben ik
