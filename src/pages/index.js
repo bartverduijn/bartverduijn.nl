@@ -17,7 +17,7 @@ export const GET_HI_QUERY = graphql`
 
 export default function IndexPage({ data }) {
 	const { title, description, author } = useSiteMetaData();
-	const { body } = data.mdx;
+	const { body, frontmatter } = data.mdx;
 	return (
 		<>
 			<SEO title="Home" />
