@@ -8,7 +8,7 @@ exports.createPages = async ({ graphql, actions }) => {
 	const { errors, data } = await graphql(`
 		{
 			allMdx(
-				filter: { frontmatter: { published: { eq: true } } }
+				filter: { frontmatter: { isPublished: { eq: true } } }
 				sort: { fields: [frontmatter___date], order: DESC }
 			) {
 				nodes {
