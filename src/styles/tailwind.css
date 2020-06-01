@@ -2,4 +2,8 @@
 
 @tailwind components;
 
+.list-disc ::marker {
+	@apply text-indigo-500;
+}
+
 @tailwind utilities;

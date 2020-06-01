@@ -15,7 +15,7 @@ const components = {
 		</h1>
 	),
 	h2: ({ children }) => (
-		<h2 className="mt-16 mb-4 text-3xl font-medium text-indigo-700">
+		<h2 className="mt-16 mb-4 text-3xl font-medium text-indigo-600">
 			{children}
 		</h2>
 	),
@@ -25,8 +25,11 @@ const components = {
 		</h3>
 	),
 	a: ({ children }) => (
-		<a className="font-normal underline text-indigo-600">{children}</a>
+		<a className="font-medium hover:underline text-indigo-600">
+			{children}
+		</a>
 	),
+	ul: ({ children }) => <a className="list-disc">{children}</a>,
 };
 
 export default function Layout({ children }) {
