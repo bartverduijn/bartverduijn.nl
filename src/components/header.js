@@ -6,7 +6,7 @@ export default function Header() {
 			<h1 className="text-md text-gray-900 font-bold leading-none">
 				Bart Verduijn
 			</h1>
-			<button type="button">
+			{/* <button type="button">
 				<svg
 					width="24"
 					height="24"
@@ -19,7 +19,7 @@ export default function Header() {
 						className="fill-current text-gray-900"
 					/>
 				</svg>
-			</button>
+			</button> */}
 		</header>
 	);
 }
