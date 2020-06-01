@@ -9,39 +9,49 @@ module.exports = {
 	siteMetadata,
 	plugins: [
 		'gatsby-plugin-postcss',
+		'gatsby-transformer-sharp',
+		'gatsby-plugin-sharp',
+		// 'gatsby-remark-images',
+		{
+			resolve: 'gatsby-plugin-mdx',
+			options: {
+				extensions: ['.mdx', '.md'],
+				gatsbyRemarkPlugins: [
+					{
+						resolve: 'gatsby-remark-images',
+						options: { maxWidth: 1500 },
+					},
+				],
+			},
+		},
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: { path: `${__dirname}/src/posts`, name: 'posts' },
 		},
-		{ resolve: 'gatsby-plugin-mdx', options: ['.mdx', '.md'] },
 		{
-			resolve: `gatsby-plugin-purgecss`,
-			options: {
-				printRejected: false,
-				develop: false,
-				tailwind: true,
-				// whitelist: ['whitelist'], // Don't remove this selector
-				// ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
-				// purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
-			},
+			resolve: 'gatsby-source-filesystem',
+			options: { path: `${__dirname}/src/pages`, name: 'pages' },
 		},
-		'gatsby-transformer-sharp',
-		'gatsby-plugin-sharp',
 		{
-			resolve: 'gatsby-plugin-manifest',
-			options: {
-				name: 'Bart Verduijn',
-				short_name: 'Bart',
-				start_url: '/',
-				background_color: '#663399',
-				theme_color: '#663399',
-				display: 'minimal-ui',
-				icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
-			},
+			resolve: 'gatsby-source-filesystem',
+			options: { path: `${__dirname}/src/images`, name: 'images' },
 		},
-		'gatsby-plugin-react-helmet',
+
+		// {
+		// 	resolve: 'gatsby-plugin-manifest',
+		// 	options: {
+		// 		name: 'Bart Verduijn',
+		// 		short_name: 'Bart',
+		// 		start_url: '/',
+		// 		background_color: '#663399',
+		// 		theme_color: '#663399',
+		// 		display: 'minimal-ui',
+		// 		icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+		// 	},
+		// },
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.dev/offline
 		// `gatsby-plugin-offline`,
+		'gatsby-plugin-react-helmet',
 	],
 };
