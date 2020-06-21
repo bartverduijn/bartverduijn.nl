@@ -18,8 +18,8 @@ export default function PostTemplate({ data }) {
 	const { frontmatter, body } = data.mdx;
 	return (
 		<article>
-			<h1>{frontmatter.title}</h1>
-			<date>{frontmatter.date}</date>
+			{/* <h1>{frontmatter.title}</h1>
+			<date>{frontmatter.date}</date> */}
 			<MDXRenderer>{body}</MDXRenderer>
 		</article>
 	);
