@@ -1,5 +1,10 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
+
+const HeaderLink = styled(Link)`
+	text-decoration: none;
+`;
 
 const HeaderStyles = styled.header`
 	display: flex;
@@ -8,7 +13,7 @@ const HeaderStyles = styled.header`
 	margin: ${({ theme }) => theme.marginBottom} 0;
 
 	h1 {
-		color: ${({ theme }) => theme.grey500};
+		color: ${({ theme }) => theme.grey900};
 		font-size: 1rem;
 		font-weight: 700;
 		line-height: 0;
@@ -32,8 +37,10 @@ const HeaderStyles = styled.header`
 export default function Header() {
 	return (
 		<HeaderStyles>
-			<h1>Bart Verduijn</h1>
-			<button type="button">
+			<HeaderLink to="/">
+				<h1>Bart Verduijn</h1>
+			</HeaderLink>
+			{/* <button type="button">
 				<svg
 					width="24"
 					height="24"
@@ -46,7 +53,7 @@ export default function Header() {
 						className="fill-current text-gray-900"
 					/>
 				</svg>
-			</button>
+			</button> */}
 		</HeaderStyles>
 	);
 }
