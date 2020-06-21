@@ -8,7 +8,7 @@ const siteMetadata = {
 module.exports = {
 	siteMetadata,
 	plugins: [
-		'gatsby-plugin-postcss',
+		'gatsby-plugin-styled-components',
 		'gatsby-transformer-sharp',
 		'gatsby-plugin-sharp',
 		// 'gatsby-remark-images',
@@ -36,7 +36,6 @@ module.exports = {
 			resolve: 'gatsby-source-filesystem',
 			options: { path: `${__dirname}/src/images`, name: 'images' },
 		},
-
 		// {
 		// 	resolve: 'gatsby-plugin-manifest',
 		// 	options: {
