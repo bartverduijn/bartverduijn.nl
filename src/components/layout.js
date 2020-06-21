@@ -1,45 +1,72 @@
 import React from 'react';
-import { MDXProvider } from '@mdx-js/react';
 import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
+import { MDXProvider } from '@mdx-js/react';
+import 'normalize.css';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import Header from './Header';
+import mdxComponents from './mdx';
 
-const components = {
-	p: ({ children }) => (
-		<p className="mb-6 sm:mb-8 text-lg sm:text-xl leading-relaxed font-light text-gray-800">
-			{children}
-		</p>
-	),
-	h1: ({ children }) => (
-		<h1 className="mt-2 mb-4 text-4xl font-normal text-gray-900">
-			{children}
-		</h1>
-	),
-	h2: ({ children }) => (
-		<h2 className="mt-16 mb-4 text-3xl font-medium text-indigo-600">
-			{children}
-		</h2>
-	),
-	h3: ({ children }) => (
-		<h3 className="mt-8 mb-3 text-2xl font-medium text-gray-900">
-			{children}
-		</h3>
-	),
-	a: ({ children }) => (
-		<a className="font-medium hover:underline text-indigo-600">
-			{children}
-		</a>
-	),
-	ul: ({ children }) => <a className="list-disc">{children}</a>,
+const theme = {
+	marginBottom: '2.16612rem',
+	fontSize: '18px',
+	grey900: 'hsl(209, 61%, 16%)',
+	grey800: 'hsl(211, 39%, 23%)',
+	grey700: 'hsl(209, 34%, 30%)',
+	grey600: 'hsl(209, 28%, 39%)',
+	grey500: 'hsl(210, 22%, 49%)',
+	grey400: 'hsl(209, 23%, 60%)',
+	grey300: 'hsl(211, 27%, 70%)',
+	grey200: 'hsl(210, 31%, 80%)',
+	grey100: 'hsl(212, 33%, 89%)',
+	grey000: 'hsl(210, 36%, 96%)',
+	blue900: 'hsl(245, 100%, 27%)',
+	blue700: 'hsl(245, 79%, 52%)',
+	blue500: 'hsl(243, 94%, 66%)',
 };
 
-export default function Layout({ children }) {
+const GlobalStyles = createGlobalStyle`
+	html {
+		font-size: ${theme.fontSize};
+		line-height: 1.625;
+		font-family: 'system-ui', -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+		box-sizing: border-box;
+		overflow-y: scroll;
+	}
+	*, *:before, *:after {
+        box-sizing: inherit;
+    }
+	body {
+		color: ${theme.grey700};
+		font-weight: 300;
+		word-wrap: break-word;
+		font-kerning: normal;
+		font-feature-settings: 'kern', 'liga', 'clig', 'calt';
+	}
+`;
+
+const ContainerStyles = styled.div`
+	max-width: 48rem;
+	margin: 0 auto;
+	padding: 0 1.5rem;
+`;
+
+export default function Layout({ children, title }) {
 	return (
-		<div className="max-w-3xl mx-auto px-6">
-			<MDXProvider components={components}>
-				<Header />
-				{children}
-			</MDXProvider>
-		</div>
+		<>
+			<GlobalStyles />
+			<Helmet>
+				<title>{title}</title>
+			</Helmet>
+			<ThemeProvider theme={theme}>
+				<MDXProvider components={mdxComponents}>
+					<ContainerStyles>
+						<Header />
+						{children}
+					</ContainerStyles>
+				</MDXProvider>
+			</ThemeProvider>
+		</>
 	);
 }
 

@@ -1,12 +1,39 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const HeaderStyles = styled.header`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: ${({ theme }) => theme.marginBottom} 0;
+
+	h1 {
+		color: ${({ theme }) => theme.grey500};
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 0;
+	}
+
+	button {
+		background: none;
+		border: none;
+
+		svg {
+			fill: currentColor;
+			color: ${({ theme }) => theme.grey500};
+		}
+
+		&:hover svg {
+			color: ${({ theme }) => theme.grey900};
+		}
+	}
+`;
 
 export default function Header() {
 	return (
-		<header className="flex justify-between items-center mt-10">
-			<h1 className="text-md text-gray-900 font-bold leading-none">
-				Bart Verduijn
-			</h1>
-			{/* <button type="button">
+		<HeaderStyles>
+			<h1>Bart Verduijn</h1>
+			<button type="button">
 				<svg
 					width="24"
 					height="24"
@@ -19,7 +46,7 @@ export default function Header() {
 						className="fill-current text-gray-900"
 					/>
 				</svg>
-			</button> */}
-		</header>
+			</button>
+		</HeaderStyles>
 	);
 }
