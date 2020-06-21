@@ -4,7 +4,7 @@ export default styled.a`
 	margin: 0;
 	padding: 0;
 	background-color: transparent;
-	color: ${({ theme }) => theme.blue700};
+	color: ${({ theme }) => theme.blue500};
 	text-decoration: none;
 	font-weight: 400;
 

@@ -15,7 +15,7 @@ const headingSizes = Object.keys(headingRelativeSizes).map(
 );
 const headingColors = {
 	h1: 'grey900',
-	h2: 'grey800',
+	h2: 'blue500',
 	h3: 'grey700',
 	h4: 'grey600',
 	h5: 'grey500',
