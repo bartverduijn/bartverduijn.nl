@@ -2,34 +2,30 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-const HeaderLink = styled(Link)`
-	text-decoration: none;
-`;
-
 const HeaderStyles = styled.header`
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-	margin: ${({ theme }) => theme.marginBottom} 0;
+	align-items: baseline;
 
-	h1 {
-		color: ${({ theme }) => theme.grey900};
-		font-size: 1rem;
-		font-weight: 700;
-		line-height: 0;
+	a {
+		text-decoration: none;
 	}
 
-	button {
-		background: none;
-		border: none;
+	h1 {
+		padding: 32px 0;
+		font-size: 24px;
+		font-weight: 800;
+		line-height: 0;
+		color: var(--color-gray-800);
+	}
 
-		svg {
-			fill: currentColor;
-			color: ${({ theme }) => theme.grey500};
-		}
+	nav a {
+		font-size: 18px;
+		font-weight: 600;
+		color: var(--color-gray-400);
 
-		&:hover svg {
-			color: ${({ theme }) => theme.grey900};
+		&:hover {
+			color: var(--color-gray-800);
 		}
 	}
 `;
@@ -37,23 +33,12 @@ const HeaderStyles = styled.header`
 export default function Header() {
 	return (
 		<HeaderStyles>
-			<HeaderLink to="/">
+			<Link to="/">
 				<h1>Bart Verduijn</h1>
-			</HeaderLink>
-			{/* <button type="button">
-				<svg
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					fill="none"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<path
-						d="M2 6H22V7H2V6ZM2 12H22V13H2V12ZM22 18H2V19H22V18Z"
-						className="fill-current text-gray-900"
-					/>
-				</svg>
-			</button> */}
+			</Link>
+			<nav>
+				<Link to="/about">About</Link>
+			</nav>
 		</HeaderStyles>
 	);
 }
